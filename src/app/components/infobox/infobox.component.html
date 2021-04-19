@@ -1,0 +1,15 @@
+<form *ngIf="node.name">
+    <p>Title: {{node.name}}</p>
+    <p>Year: {{node.year}}</p>
+    <p>Director: {{node.director}}</p>
+    <p>Rating: {{node.rating}}</p>
+    <form id="addcomment">
+    <textarea name="newcomment" id="newcomment" cols="30" rows="10" #newcomment ></textarea>
+    <button type="submit" (click)="onSubmit(newcomment.value)" >Post comment</button>
+    </form>
+    <h3>Comments:</h3>
+    <p name="comments" *ngFor="let item of node.comments">
+        {{item}}
+    </p>
+    <a>{{message}}</a>
+</form>

@@ -1,0 +1,23 @@
+<span *ngIf="!loggedIn">
+    <form name="login" id="login" (ngSubmit)="onSubmit()">
+        <input type="text" [(ngModel)]="username" name="username" placeholder="username">
+        <input type="password" [(ngModel)]="password" placeholder="password" name="password">
+        <button type="submit">login</button>
+    </form>
+
+    <form name="register" id="register" (ngSubmit)="onRegister({username:username, password:password})" hidden>
+        <input type="text" [(ngModel)]="username" name="username" placeholder="username">
+        <input type="password" [(ngModel)]="regpassword" name="password" placeholder="password">
+        <input type="password" [(ngModel)]="passwordCheck" name="password" placeholder="enter password again">
+        <button type="submit">register</button>
+    </form>   
+    <span>
+        <a id="changeText">{{changeText}}</a>
+        <button id="changeButton" (click)="ToggleLogin()">Take me there</button>
+    </span>
+    <a>{{message}}</a>
+</span>
+<span *ngIf="loggedIn">
+<a>You're already logged in.</a>
+<button (click)="logOut()">Log out</button>
+</span>
